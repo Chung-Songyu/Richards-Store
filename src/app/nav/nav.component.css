@@ -1,0 +1,45 @@
+.nav-link:hover {
+  cursor: pointer;
+}
+
+#searchForm {
+  width: 500px;
+}
+
+.badge {
+  padding: 2px 7px 5px 7px;
+}
+
+.cart-collapse {
+  border-radius: 50px;
+}
+
+.cart-collapse:hover {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.cart-number-container {
+  top: 20%;
+}
+
+.cart-number {
+  font-size: 10px;
+}
+
+@media (max-width: 1199px) {
+  .badge {
+    padding: 2px 7px 5px 7px;
+  }
+
+  .cart-collapse {
+    margin: 15px 0px 0px 0px;
+    padding: 0px;
+  }
+}
+
+@media (max-width: 290px) {
+  .navbar-toggler-icon {
+    height: 20px;
+    width: 20px;
+  }
+}

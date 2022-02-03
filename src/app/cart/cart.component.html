@@ -1,0 +1,67 @@
+<ng-container *ngIf="cartList.length!=0">
+  <div class="body-margin container">
+    <div class="page-height">
+      <div class="table table-responsive table-warning table-hover table-striped pt-5 pb-4">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 2%">S/N</th>
+            <th scope="col" style="width: 8%">Item</th>
+            <th scope="col" style="width: 10%">Image</th>
+            <th scope="col" style="width: 21%">Description</th>
+            <th scope="col" style="width: 13%">Price</th>
+            <th scope="col" style="width: 13%">Quantity</th>
+            <th scope="col" style="width: 13%">Sub-total</th>
+            <th scope="col" style="width: 20%">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let cartItem of cartList; let i = index">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td>{{cartItem.title}}</td>
+              <td><img src={{cartItem.image}} alt={{cartItem.title}} class="cart-img"></td>
+              <td>{{cartItem.description}}</td>
+              <td>{{cartItem.price | currency:'USD':'symbol-narrow'}}</td>
+              <td>{{cartItem.quantity}}</td>
+              <td>{{cartItem.price * cartItem.quantity | currency:'USD':'symbol-narrow'}}</td>
+              <td>
+                <button class="badge" (click)="removeSingleItem(cartItem)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+          <tr>
+            <td colspan="4"></td>
+            <td>
+              <button class="btn btn-danger" (click)="removeAllItems()">Empty Cart</button>
+            </td>
+            <td>
+              <button class="btn btn-primary" routerLink="">Shop More</button>
+            </td>
+            <td>
+              <button class="btn btn-success">Checkout</button>
+            </td>
+            <td>
+              <strong>Grand Total: {{grandTotal | currency:'USD':'symbol-narrow'}}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="cartList.length==0">
+  <div class="body-margin container">
+    <div class="page-height">
+      <div class="card shadow">
+        <div class="empty-cart text-center">
+          <i class="bi bi-cart4"></i>
+          <h1>Your cart is empty!</h1>
+          <h3 class="mt-2 mb-3">Add item to it now</h3>
+          <button type="button" class="btn btn-primary" routerLink="">Shop now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,51 @@
+<div class="body-margin container-fluid w-75 mb-4">
+  <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 col-xxl-2" *ngIf=isFiltered>
+    <button type="button" class="btn btn-dark mt-3" (click)="allItems()">Show all items</button>
+  </div>
+  <div *ngIf=!showDetail>
+    <div class="row">
+      <ng-container *ngFor="let item of filteredList | filter:searchTerm:'title'">
+        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-2">
+          <div class="card mt-3 shadow card-all">
+            <img class="card-img-top px-4 pt-4 pb-3 img-all" src={{item.image}} alt={{item.title}}>
+            <div class="card-body">
+              <h5 class="card-title card-title-all overflow"><strong>{{item.title}}</strong></h5>
+              <hr class="hr-all">
+              <p class="card-text item-description-all overflow">{{item.description}}</p>
+              <hr class="hr-all">
+              <p class="card-text item-price-all"><strong>Price: </strong>{{item.price | currency:'USD':'symbol-narrow'}}</p>
+              <button class="btn btn-primary btn-sm" (click)="addToCart(item)">Add to cart</button>
+              <br>
+              <button type="button" class="btn btn-success btn-sm my-2" id={{item.id}} (click)="getDetail($event)">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div *ngIf=noItemFound()>
+      </div>
+      <div *ngIf=noItem>
+        <div class="d-flex justify-content-center align-items-center fs-1 w-100 page-height text-center">
+          <div>No item found, please change your search term.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf=showDetail>
+    <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2 col-xxl-2">
+      <button type="button" class="btn btn-dark mt-3" (click)="toggleDetail()">Back</button>
+    </div>
+    <div class="card mt-3 shadow col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-4 card-detail">
+      <img class="card-img-top px-4 pt-4 pb-3 img-detail" src={{itemDetail.image}} alt={{itemDetail.title}}>
+      <div class="card-body">
+        <h5 class="card-title"><strong>{{itemDetail.title}}</strong></h5>
+        <hr class="hr-detail">
+        <p class="card-text item-description-detail">{{itemDetail.description}}</p>
+        <hr class="hr-detail">
+        <p class="card-text item-price"><strong>Price: </strong>{{itemDetail.price | currency:'USD':'symbol-narrow'}}</p>
+        <button class="btn btn-primary" (click)="addToCart(itemDetail)">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

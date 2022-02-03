@@ -1,0 +1,76 @@
+.body-margin {
+  margin-top: 70px;
+  min-height: calc(100vh - 174px);
+}
+
+.card-all {
+  height: 375px;
+  border: 1px solid black;
+}
+
+.img-all {
+  min-height: 190px;
+  max-height: 190px;
+}
+
+.card .img-all:hover{
+  transform: scale(1.1);
+}
+
+.card-title {
+  color: rgba(65, 95, 140, 1);
+}
+
+.card-title-all {
+  height: 22px;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-description-all {
+  height: 18px;
+  font-size: 0.8rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.item-price-all {
+  height: 10px;
+  font-size: 0.8rem;
+}
+
+.hr-all {
+  margin: 5px 0px 5px 0px;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+}
+
+.page-height {
+  height: calc(100vh - 150px);
+}
+
+.card-detail {
+  border: 1px solid black;
+}
+
+.item-description-detail {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.hr-detail {
+  margin: 10px 0px 10px 0px;
+}
+
+.img-detail {
+  min-height: 475px;
+  max-height: 475px;
+}
